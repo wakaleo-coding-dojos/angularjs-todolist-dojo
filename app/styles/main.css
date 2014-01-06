@@ -1,0 +1,55 @@
+/*
+Syntax error: File to import not found or unreadable: sass-bootstrap/lib/bootstrap.
+              Load path: /Users/john/Projects/OpenSource/thucydides/thucydides-ui/app/styles
+        on line 4 of main.scss
+
+1: $fa-font-path: "/bower_components/font-awesome/fonts";
+2: $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+3: 
+4: @import 'sass-bootstrap/lib/bootstrap';
+5: @import 'font-awesome/scss/font-awesome';
+6: 
+7: .browsehappy {
+8:     margin: 0.2em 0;
+9:     background: #ccc;
+
+Backtrace:
+main.scss:4
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:45:in `import'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `map'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/engine.rb:315:in `_render'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/engine.rb:262:in `render'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:201:in `each'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/plugin.rb:81:in `update_stylesheets'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:443:in `watch_or_update'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:326:in `process_result'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:41:in `parse'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/lib/sass/exec.rb:21:in `parse!'
+/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.2.12/bin/scss:9:in `<top (required)>'
+/usr/local/opt/ruby/bin/scss:23:in `load'
+/usr/local/opt/ruby/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: sass-bootstrap/lib/bootstrap.\A               Load path: /Users/john/Projects/OpenSource/thucydides/thucydides-ui/app/styles\A         on line 4 of main.scss\A \A 1: $fa-font-path: \"/bower_components/font-awesome/fonts\";\A 2: $icon-font-path: \"/bower_components/sass-bootstrap/fonts/\";\A 3: \A 4: @import 'sass-bootstrap/lib/bootstrap';\A 5: @import 'font-awesome/scss/font-awesome';\A 6: \A 7: .browsehappy {\A 8:     margin: 0.2em 0;\A 9:     background: #ccc;"; }
