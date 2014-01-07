@@ -1,0 +1,229 @@
+<div>
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Process cats files</a></li>
+    <li class="active">Transmission dashboard</li>
+</ol>
+
+<article class="scenario-heading">
+    <section class="main">
+        <div class="section-heading">
+            <div class="scenario-title col-md-10 .col-sm-9">
+                <h3><i class="{{resulticon}} icon-2x result-{{result}}"></i> {{outcome.title}}</h3>
+            </div>
+            <div class="scenario-icons col-md-2 .col-sm-3">
+                <div class="badge-{{result}}">{{result}}</div>
+                <div><i class="icon-time icon-large pull-left"></i> {{outcome.duration}}s</div>
+                <div ng-show="outcome.manual"><i class="icon-user icon-large pull-left"></i> Manual Test</div>
+                <div><i class="icon-calendar icon-large pull-left"></i> {{outcome.timestamp | date:'MM/dd/yyyy'}} at
+                    {{outcome.timestamp | date:'h:mma'}}
+                </div>
+                <div><i class="icon-ticket icon-large pull-left"></i>
+                    <a ng-repeat="issue in outcome.issues" href="#">{{issue}}</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="scenario-tags">
+            <i class="icon-tags icon-large pull-left"></i>
+            <a href="#" ng-repeat="tag in outcome.tags" title="{{tag.type}}">
+                <span class="badge">{{tag.name}}</span></a>
+            </a>
+        </div>
+
+        <div class="scenario-panel">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <i class="icon-comments-alt icon-2x"></i>
+                            <a class="accordion-toggle" data-toggle="collapse" href="#story-narrative">
+                                <span class="requirement-type">{{parentRequirement.requirementType}}</span>:
+                                <span class="requirement-name">{{parentRequirement.displayName}}</span>
+                            </a>
+
+                            <div class="scenario-annotations">
+                                <span class="associated-tickets"><i class="icon-ticket icon-large pull-left"></i><a
+                                        href="#">{{parentRequirement.cardNumber}}</a>
+                                </span>
+                                <span>
+                                    <a class="btn btn-small" data-toggle="collapse" data-target="#story-narrative">
+                                        <i class="icon-expand-alt icon-large expander"></i>
+                                        <i class="icon-collapse-alt icon-large collapser"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </h4>
+                    </div>
+                    <div id="story-narrative" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div ng-bind-html="parentRequirement.renderedNarrativeText"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario-panel" ng-show="exampleData.length">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <i class="icon-align-left icon-large"></i>
+                            <a class="accordion-toggle" data-toggle="collapse" href="#scenario-description">
+                                Scenario Outline
+                            </a>
+
+                            <div class="scenario-annotations">
+                                <a class="btn btn-small" data-toggle="collapse" data-target="#scenario-description">
+                                    <i class="icon-expand-alt icon-large expander"></i>
+                                    <i class="icon-collapse-alt icon-large collapser"></i>
+                                </a>
+                            </div>
+                        </h4>
+                    </div>
+                    <div id="scenario-description" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div ng-bind-html="exampleScenario"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario-panel" ng-show="exampleData.length">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#scenario-examples">
+                                Examples
+                            </a>
+
+                            <div class="scenario-annotations">
+                                <a class="btn btn-small" data-toggle="collapse" data-target="#scenario-examples">
+                                    <i class="icon-expand-alt icon-large expander"></i>
+                                    <i class="icon-collapse-alt icon-large collapser"></i>
+                                </a>
+                            </div>
+                        </h4>
+                    </div>
+                    <div id="scenario-examples" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div kendo-grid
+                                 k-data-source="{data:exampleData, pageSize:10}"
+                                 k-row-template=rowTemplate
+                                 k-selectable="'row'"
+                                 k-pageable="{'refresh':true, 'pageSizes': true}"
+                                 k-columns="exampleHeadings"
+                                 k-sortable="true"
+                                 k-resizable="true"
+                                 k-filterable="true"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="scenario-outcomes" class="scenario-panel">
+            <div class="panel-group" class="section-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th>Steps</th>
+                                <th class="screenshot-column"><i class="icon-camera-retro"></i></th>
+                                <th><i class="icon-check"></i> Outcome</th>
+                                <th><i class="icon-time"></i> Duration</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="step in testSteps" class="{{step.result.toLowerCase()}}">
+                                <td>
+                                    <a ng-show="step.children.length" id="step-{{step.number}}" class="parent-step">
+                                        <i class="icon-expand-alt"></i>
+                                        <i class="icon-collapse-alt" style="display:none"></i>
+                                        {{step.description}}
+                                    </a>
+                                    <span ng-show="!step.children.length">{{step.description}}</span>
+                                </td>
+                                <td><img ng-show="outcome.screenshots.length" class="screenshot-thumbnail"
+                                         src="outcome.screenshots[0].path"/>
+                                </td>
+                                <td>{{step.result}}</td>
+                                <td>{{step.duration}} s</td>
+                            </tr>
+                            <tr class="success step-1-child initially-hidden">
+                                <td class="indent-1">When I search for listings relating to 'dog'</td>
+                                <td><img class="screenshot-thumbnail"
+                                         src="http://wakaleo.com/thucydides-sample-reports/screenshot-66a5a0b72f54fd86f3a9feb78513ec321e5622f02b65c09027e1e17142a8062216.png"/>
+                                </td>
+                                <td>SUCCESS</td>
+                                <td>3.42 s</td>
+                            </tr>
+
+                            <tr class="failure step-1-child initially-hidden">
+                                <td class="indent-1">Then I should only see listings with 'dog' in the title</td>
+                                <td><img class="screenshot-thumbnail"
+                                         src="http://wakaleo.com/thucydides-sample-reports/screenshot-66a5a0b72f54fd86f3a9feb78513ec321e5622f02b65c09027e1e17142a8062216.png"/>
+                                </td>
+                                <td>FAILURE</td>
+                                <td>7.34 s</td>
+                            </tr>
+                            <tr class="error">
+                                <td><a id="step-2" class="parent-step"><i class="icon-expand-alt"></i><i
+                                        class="icon-collapse-alt"
+                                        style="display: none;"></i> And I should see Fido</a></td>
+                                <td><img class="screenshot-thumbnail"
+                                         src="http://wakaleo.com/thucydides-sample-reports/screenshot-66a5a0b72f54fd86f3a9feb78513ec321e5622f02b65c09027e1e17142a8062216.png"/>
+                                </td>
+                                <td>ERROR</td>
+                                <td>7.34 s</td>
+                            </tr>
+                            <tr class="skipped step-2-child initially-hidden">
+                                <td class="indent-1">And I should do something else</td>
+                                <td></td>
+                                <td>SKIPPED</td>
+                                <td>7.34 s</td>
+                            </tr>
+                            <tr class="pending step-2-child initially-hidden">
+                                <td class="indent-1">And I should do something else</td>
+                                <td></td>
+                                <td>PENDING</td>
+                                <td>7.34 s</td>
+                            </tr>
+                            <tr class="skipped step-2-child initially-hidden">
+                                <td class="indent-1">And I should do something else</td>
+                                <td></td>
+                                <td>SKIPPED</td>
+                                <td>7.34 s</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.parent-step').click(function () {
+            var id = $(this).attr('id');
+            toggleStep(id);
+            toggleIcon(id);
+        });
+    });
+
+    function toggleStep(stepParent) {
+        $('.' + stepParent + '-child').toggle(250);
+    }
+
+    function toggleIcon(stepParent) {
+        $('#' + stepParent + ' .icon-expand-alt').toggle()
+        $('#' + stepParent + ' .icon-collapse-alt').toggle()
+    }
+</script>
+
