@@ -1,26 +1,20 @@
 'use strict';
 
 angular.module('thucydidesUiApp', [
-        'ngCookies',
-        'ngResource',
-        'ngSanitize',
-        'ngRoute'
-    ])
-    .config(function ($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
-            })
-            .when('/dashboard', {
-                templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl'
-            })
-            .when('/outcomes/:outcomeId', {
-                templateUrl: 'outcomes/outcomes.tpl.html',
-                controller: 'OutcomeCtrl'
-            })
-            .otherwise({
-                redirectTo: '/'
-            });
-    });
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'ui.router'
+  ])
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/home',
+        templateUrl: 'dashboard/dashboard.tpl.html'
+      })
+      .state('requirements', {
+        url: '/requirements',
+        templateUrl: 'requirements/requirements.tpl.html',
+        controller: 'RequirementsCtrl'
+      });
+  });
