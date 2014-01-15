@@ -16,7 +16,7 @@ describe('Todo Controller', function () {
     });
 
     this.todoStorage = todoStorage;
-    this.todoStorage.storeIn('temp-todos');
+    this.todoStorage.storeIn('temp-todos')
 
   }));
 
@@ -29,20 +29,10 @@ describe('Todo Controller', function () {
   });
 
   it('should be able to add a new todo', function(){
-    scope.newTodo = {title:'Gotta do this'};
-    scope.addTodo();
-
-    expect(scope.todos.length).toBe(1);
-    expect(scope.todos).toContain({title: 'Gotta do this'});
-  });
-
-  it('should be able to delete all selected existing todos', function(){
-    scope.todos = [{ id: 1, title:'To be deleted 1'}, { id: 2, title:'To be deleted 2'}];
-
-    scope.deleteTodos([1]);
-
-    expect(scope.todos.length).toBe(1);
-    expect(scope.todos).toContain({ id: 2, title: 'To be deleted 2'});
+    scope.newTodo = 'new todo';
+    TodoCtrl.addTodo();
+    expect(scope.todos.length).toEqual(1);
+    expect(scope.todos[0]).
   });
 
 });

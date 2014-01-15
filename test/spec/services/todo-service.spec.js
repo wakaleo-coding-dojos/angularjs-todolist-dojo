@@ -43,14 +43,4 @@ describe('Todo Service', function () {
     expect(storedTodos).toContain({title:'Gotta do this too'});
   });
 
-  it('should be able to clear a collection of exiting todos', function () {
-
-    todos.put([{title:'Gotta do this'},{title:'Gotta do this too'}]);
-
-    var storedTodos = todos.get();
-
-    expect(storedTodos).toContain({title:'Gotta do this'});
-    expect(storedTodos).toContain({title:'Gotta do this too'});
-  });
-
 });

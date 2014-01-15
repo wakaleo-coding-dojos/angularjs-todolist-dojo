@@ -3,7 +3,6 @@
 describe('Displaying the main menu bar', function() {
 
   var todoField = element(by.id("new-todo"));
-  var todoList = element.all(by.repeater('todo in todos'));
 
   it('should display the home page by default', function() {
     browser.get('/#/');
@@ -24,15 +23,13 @@ describe('Displaying the main menu bar', function() {
 
   });
 
-  it("should be able to add items to the todo list", function() {
+  xit("should be able to add items to the todo list", function() {
     browser.get('/#/home');
 
     todoField.sendKeys('My task');
-
     element(by.id('add-task')).click();
 
-    expect(todoList.count()).toBe(1);
-    expect(todoList.get(0).getText()).toBe('My task');
+
 
   });
 

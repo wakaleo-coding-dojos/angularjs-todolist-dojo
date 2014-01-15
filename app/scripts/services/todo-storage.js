@@ -20,12 +20,6 @@ angular.module('todoApp')
 
     storeIn: function(storageId) {
       STORAGE_ID = storageId;
-    },
-
-    delete: function(todoIds){
-      var todos = JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
-      todoIds
-
     }
   };
 });
