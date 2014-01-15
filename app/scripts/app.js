@@ -1,20 +1,17 @@
 'use strict';
 
-angular.module('thucydidesUiApp', [
+angular.module('todoApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ui.router'
   ])
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider,  $urlRouterProvider) {
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: 'dashboard/dashboard.tpl.html'
-      })
-      .state('requirements', {
-        url: '/requirements',
-        templateUrl: 'requirements/requirements.tpl.html',
-        controller: 'RequirementsCtrl'
+        templateUrl: 'home/home.html'
       });
+
+    $urlRouterProvider.otherwise('/home');
   });

@@ -1,7 +1,16 @@
-<div class="jumbotron">
-  <h1>Thucydides Home Page</h1>
-</div>
+<section id="todoapp"  ng-controller="TodoCtrl">
+    <h1>Todo List</h1>
 
-<div class="row marketing">
-  <h4>Overview reporting goes here</h4>
-</div>
+    <form id="todo-form" ng-submit="addTodo()" class="ng-pristine ng-valid">
+        <input id="new-todo" placeholder="What needs doing?" ng-model="newTodo.title" autofocus=""
+               class="ng-pristine ng-valid">
+        <button type="submit" id="add-task" value="">Add Task</button>
+    </form>
+
+    <table>
+        <tr ng-repeat="todo in todos">
+            <td><input type="checkbox"></td>
+            <td>{{todo.title}}</td>
+        </tr>
+    </table>
+</section>

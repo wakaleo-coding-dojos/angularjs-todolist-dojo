@@ -1963,8 +1963,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("/bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.eot");
-  src: url("/bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("../bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.eot");
+  src: url("../bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../bower_components/sass-bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -6398,4 +6398,8 @@ body {
 
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
-    border-bottom: 0; } }
+    border-bottom: 0; }
+
+  .active a {
+    font-weight: bold;
+    color: #3071a9; } }

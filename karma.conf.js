@@ -12,12 +12,23 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-resource/angular-resource.js',
+      'app/bower_components/angular-cookies/angular-cookies.js',
+      'app/bower_components/angular-sanitize/angular-sanitize.js',
+      'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/scripts/*.js': ['coverage']
+    },
 
     // list of files / patterns to exclude
     exclude: [],
@@ -42,11 +53,13 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    reporters: ['coverage']
   });
 };
