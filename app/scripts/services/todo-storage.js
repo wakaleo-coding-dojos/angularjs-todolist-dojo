@@ -3,7 +3,7 @@
  */
 angular.module('todoApp')
 .factory('todoStorage', function () {
-  var STORAGE_ID = 'todos';
+  var STORAGE_ID = 'todolist';
 
   return {
     get: function () {
